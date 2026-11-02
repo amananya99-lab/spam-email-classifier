@@ -1,0 +1,18 @@
+You got selected for interview --> NOT SPAM ✅
+hi where are you --> NOT SPAM ✅
+you win 500 for free --> SPAM ❌ (Rule-based)
+Your bank account has been suspended --> NOT SPAM ✅
+Your bank account has been suspended --> NOT SPAM ✅
+Free food is available at the college canteen today for all students --> NOT SPAM ✅
+Your acc0unt is bl0cked, verify n0w to av0id suspensi0n --> NOT SPAM ✅
+Your acc0unt is bl0cked, verify n0w to av0id suspensi0n --> NOT SPAM ✅
+Hi bro, check this link http://bit.ly/ .. --> SPAM ❌ (Rule-based)
+Unusual activity in your account --> NOT SPAM ✅
+Limited time offer! Get 70% off --> SPAM ❌ (Rule-based)
+Your OTP for transaction is 458921 --> NOT SPAM ✅
+Click here to verify your account --> SPAM ❌ (Rule-based)
+limited time offer! Get 70% off --> SPAM ❌ (Rule-based)
+URGENT! Your account has been compromised. Click here --> SPAM ❌ (Rule-based)
+URGENT! Your account has been compromised. Click here --> SPAM ❌
+URGENT! Your account has been compromised. Click here --> SPAM ❌
+URGENT! Your account has been compromised. Click here --> SPAM ❌

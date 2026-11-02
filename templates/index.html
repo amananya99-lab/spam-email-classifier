@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spam Detector AI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@500&family=Poppins:wght@400&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+
+            background: linear-gradient(-45deg, #ff4b2b, #ff416c, #1fa2ff, #12d8fa, #a6ffcb);
+            background-size: 500% 500%;
+            animation: gradientBG 10s ease-in-out infinite;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        /* 🔥 CARD POP */
+        .card {
+            backdrop-filter: blur(20px);
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            width: 480px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+
+            transition: transform 0.25s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.04);
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .input-box {
+            position: relative;
+        }
+
+        /* 🔥 TEXTBOX POP */
+        textarea {
+            width: 90%;
+            padding: 14px 40px 14px 14px;
+            margin-top: 20px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            resize: none;
+
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        textarea:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 15px #00f2fe;
+        }
+
+        /* ❌ CLEAR BUTTON */
+        .clear-btn {
+            position: absolute;
+            top: 30px;
+            right: 35px;
+            font-size: 13px;
+            color: #555;
+            cursor: pointer;
+            display: none;
+        }
+
+        .clear-btn:hover {
+            color: #e74c3c;
+        }
+
+        /* 🔥 BUTTON POP */
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            color: white;
+            font-size: 16px;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+
+            transition: transform 0.2s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        button:active {
+            transform: scale(0.92);
+        }
+
+        .result {
+            margin-top: 25px;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .spam {
+            background: #ffe6e6;
+            color: #e74c3c;
+        }
+
+        .not-spam {
+            background: #e8fff0;
+            color: #2ecc71;
+        }
+
+        .footer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>🚀 Spam Email Detector AI</h1>
+    <p>AI-powered message classification</p>
+
+    <form action="/predict" method="post">
+
+        <div class="input-box">
+            <textarea id="messageBox" name="message" rows="4"
+                placeholder="Type your message..." required>{{ user_input }}</textarea>
+
+            <!-- ❌ CROSS BUTTON -->
+            <span class="clear-btn" id="clearBtn">✖</span>
+        </div>
+
+        <button type="submit">Analyze 🚀</button>
+    </form>
+
+    {% if prediction_text %}
+    <div id="resultBox" class="result 
+        {% if 'SPAM' in prediction_text %}spam{% else %}not-spam{% endif %}">
+        {{ prediction_text }}
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        Built by Ananya!
+    </div>
+</div>
+
+<script>
+    const textarea = document.getElementById("messageBox");
+    const clearBtn = document.getElementById("clearBtn");
+    const resultBox = document.getElementById("resultBox");
+
+    function toggleButton() {
+        clearBtn.style.display = textarea.value ? "block" : "none";
+    }
+
+    textarea.addEventListener("input", toggleButton);
+
+    clearBtn.onclick = () => {
+        textarea.value = "";
+        clearBtn.style.display = "none";
+        if (resultBox) resultBox.style.display = "none";
+        textarea.focus();
+    };
+
+    window.onload = toggleButton;
+</script>
+
+</body> 
+</html>
